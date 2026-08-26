@@ -1,4 +1,6 @@
-<!-- Banner goes here -->
+<p align="center">
+  <img src="./assets/linux-kernel-banner.webp" alt="Linux Kernel Contributions — Charles Vosburgh / the-vibe-dev" width="100%" />
+</p>
 
 # Linux Kernel Contributions
 

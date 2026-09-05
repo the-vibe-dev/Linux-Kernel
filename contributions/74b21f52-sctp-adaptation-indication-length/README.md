@@ -109,14 +109,14 @@ case SCTP_PARAM_ADAPTATION_LAYER_IND:
 
 A malformed parameter now follows the existing invalid-parameter-length handling path and association processing is aborted before `sctp_process_param()` can read the missing field.
 
-The public commit message records:
+The public commit message records these credit roles:
 
 ```text
 Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Signed-off-by: Charles Vosburgh <the-vibe-dev@users.noreply.github.com>
-Acked-by: Xin Long <lucien.xin@gmail.com>
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Cc: Linux stable
+Signed-off-by: Charles Vosburgh
+Acked-by: Xin Long
+Signed-off-by: Jakub Kicinski
 ```
 
 GitHub's upstream mirror also attributes the commit author to [`the-vibe-dev`](https://github.com/the-vibe-dev).
@@ -174,14 +174,16 @@ That is the public upstream vulnerable lineage. This write-up does not claim tha
 
 Directly reviewed vulnerable source included Linux 7.1.4, Linux 7.2-rc4, and the pre-fix networking-tree base. The first final mainline release containing the fix is **Linux 7.2**.
 
-The same change was independently tracked into the following stable releases during this research:
+The same change was independently tracked into six stable branches during this research:
 
-- Linux **6.18.44**
-- Linux **6.12.103**
-- Linux **6.6.151**
-- Linux **6.1.183**
-- Linux **5.15.216**
-- Linux **5.10.265**
+| Stable branch | Verified stable commit | First reviewed stable release carrying the change |
+|---|---|---|
+| Linux 6.18.y | [`17b412468c7a44f66a385bda48cdc1e94e39bd6d`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=17b412468c7a44f66a385bda48cdc1e94e39bd6d) | 6.18.44 |
+| Linux 6.12.y | [`5fd7cfc708dfc988ae9920c21075e6121bc89926`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=5fd7cfc708dfc988ae9920c21075e6121bc89926) | 6.12.103 |
+| Linux 6.6.y | [`93942b5772e0eee4147d4799cc1b936ae12fa615`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=93942b5772e0eee4147d4799cc1b936ae12fa615) | 6.6.151 |
+| Linux 6.1.y | [`7b7e4e3640d57bd8857f0052c8b0d8ed4e5e954a`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=7b7e4e3640d57bd8857f0052c8b0d8ed4e5e954a) | 6.1.183 |
+| Linux 5.15.y | [`4c92c601c061e5602db2edeea54fef74aa304027`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=4c92c601c061e5602db2edeea54fef74aa304027) | 5.15.216 |
+| Linux 5.10.y | [`fa7861ddbe3b525b5d541c15c3953d3569e6eb0e`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=fa7861ddbe3b525b5d541c15c3953d3569e6eb0e) | 5.10.265 |
 
 Kernel vendors and downstream distributions should still verify the exact patch status of the branch they ship rather than infer it only from version numbering.
 
@@ -216,7 +218,9 @@ Testing under both clearing and non-clearing allocation profiles is useful. The 
 ## Upstream references
 
 - [Linux mainline commit — 74b21f52c5c5](https://github.com/torvalds/linux/commit/74b21f52c5c5a71a05c0ff70e513f4f04ff28b17)
-- [Patch submission / review thread](https://patch.msgid.link/20260727-sctp-adaptation-length-v1-1-0ab58b2810a5@gmail.com)
+- [Original patch submission](https://lkml.iu.edu/hypermail/linux/kernel/2607.3/06549.html)
+- [Maintainer review and Acked-by](https://lkml.iu.edu/hypermail/linux/kernel/2607.3/08340.html)
+- [Patchwork bot acceptance notice](https://lkml.iu.edu/hypermail/linux/kernel/2607.3/11779.html)
 
 ## Credit
 

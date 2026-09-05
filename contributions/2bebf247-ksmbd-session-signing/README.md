@@ -135,14 +135,14 @@ The patch also changes SMB2 signed-request detection so `SMB2_OPLOCK_BREAK` is n
  	return true;
 ```
 
-The accepted commit message records:
+The accepted commit message records these credit roles:
 
 ```text
-Reported-by: Charles Vosburgh <the-vibe-dev@users.noreply.github.com>
-Tested-by: ChenXiaoSong <chenxiaosong@kylinos.cn>
-Reviewed-by: ChenXiaoSong <chenxiaosong@kylinos.cn>
-Signed-off-by: Namjae Jeon <linkinjeon@kernel.org>
-Signed-off-by: Steve French <stfrench@microsoft.com>
+Reported-by: Charles Vosburgh
+Tested-by: ChenXiaoSong
+Reviewed-by: ChenXiaoSong
+Signed-off-by: Namjae Jeon
+Signed-off-by: Steve French
 ```
 
 Charles Vosburgh is therefore the **reporter**, while Namjae Jeon is the accepted patch author.

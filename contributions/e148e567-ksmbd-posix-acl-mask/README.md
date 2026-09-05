@@ -138,7 +138,7 @@ Mainline commit [`e148e567a925`](https://github.com/torvalds/linux/commit/e148e5
 
 The fixed helper still detects whether the parent has a default ACL, but it no longer re-applies or broadens that ACL after the VFS creation path has done the correct inheritance work.
 
-The upstream commit message states:
+The upstream commit message states these credit roles:
 
 ```text
 The VFS initializes a child's POSIX ACL from the parent's default ACL and
@@ -148,9 +148,9 @@ child's VFS-computed access and default ACLs afterwards.
 This preserves restrictive ACL_MASK entries and prevents SMB object creation
 from widening effective permissions.
 
-Reported-by: Charles Vosburgh <the-vibe-dev@users.noreply.github.com>
-Signed-off-by: Namjae Jeon <linkinjeon@kernel.org>
-Signed-off-by: Steve French <stfrench@microsoft.com>
+Reported-by: Charles Vosburgh
+Signed-off-by: Namjae Jeon
+Signed-off-by: Steve French
 ```
 
 That credit is important: **Charles Vosburgh reported the issue; Namjae Jeon authored the accepted patch.**
@@ -215,6 +215,8 @@ The original validation reproduced the behavior on Linux **v7.1.3**. Public tag 
 
 The exact introducing commit was not independently established during the bounded review, so this write-up does not expand the affected range beyond directly reviewed evidence and the upstream fix history.
 
+The patch was selected for a public AUTOSEL series covering Linux 6.18 through 6.6. That is a queued selection, not proof of completed stable-tree backports. No distinct stable-branch cherry-pick IDs were verified during the September 5, 2026 re-check.
+
 ---
 
 ## Regression guidance
@@ -248,6 +250,7 @@ A strong KSMBD regression test should:
 
 - [Linux mainline commit — e148e567a925](https://github.com/torvalds/linux/commit/e148e567a9252643baa125cb65d7ae9c2c6cf68a)
 - [git.kernel.org commit view](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e148e567a9252643baa125cb65d7ae9c2c6cf68a)
+- [AUTOSEL selection thread](https://lkml.iu.edu/2608.3/13998.html)
 
 ## Credit
 

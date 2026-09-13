@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/Accepted%20Mainline%20Fixes-4-0A66C2?style=for-the-badge" alt="4 accepted mainline security fixes" />
   <img src="https://img.shields.io/badge/Authored%20Patches-2-2EA44F?style=for-the-badge" alt="2 authored patches" />
   <img src="https://img.shields.io/badge/Reported--by%20Fixes-2-6F42C1?style=for-the-badge" alt="2 Reported-by fixes" />
-  <img src="https://img.shields.io/badge/Verified%20Stable%20Backports-6-F59E0B?style=for-the-badge" alt="6 verified stable-tree backports of the first authored SCTP fix" />
+  <img src="https://img.shields.io/badge/Verified%20Stable%20Backports-7-F59E0B?style=for-the-badge" alt="7 verified stable-tree backports of the first authored SCTP fix" />
 </p>
 
 Upstream Linux kernel security work by **Charles Vosburgh** / **[`the-vibe-dev`](https://github.com/the-vibe-dev)**.
@@ -22,26 +22,27 @@ This repository is the authoritative public portfolio for accepted Linux securit
 | Accepted mainline security fixes carrying Charles's credit | **4** |
 | Patches authored and signed off by Charles | **2** |
 | Fixes carrying `Reported-by: Charles Vosburgh` | **2** |
-| Verified stable-tree backports of the first authored SCTP fix | **6** |
+| Verified stable-tree backports of the first authored SCTP fix | **7** |
 | Subsystems represented | **2** |
 
-The six-backport count applies only to `sctp: validate Adaptation Indication parameter length`. It is not a total across all four fixes.
+The seven-backport count applies only to `sctp: validate Adaptation Indication parameter length`. It is not a total across all four fixes.
 
 ## Accepted mainline contribution index
 
 | Mainline commit | Subsystem | Contribution | Role | Stable status | Write-up |
 |---|---|---|---|---|---|
-| [`74b21f52c5c5`](https://github.com/torvalds/linux/commit/74b21f52c5c5a71a05c0ff70e513f4f04ff28b17) | SCTP networking (`net/sctp`) | `sctp: validate Adaptation Indication parameter length` | Patch author + `Signed-off-by` | Six verified stable-tree backports | [Read](contributions/74b21f52-sctp-adaptation-indication-length/) |
+| [`74b21f52c5c5`](https://github.com/torvalds/linux/commit/74b21f52c5c5a71a05c0ff70e513f4f04ff28b17) | SCTP networking (`net/sctp`) | `sctp: validate Adaptation Indication parameter length` (`CVE-2026-80717`, `GHSA-fq3m-cvqw-wrvh`) | Patch author + `Signed-off-by` | Seven verified stable-tree backports | [Read](contributions/74b21f52-sctp-adaptation-indication-length/) |
 | [`6cfc1b90cb86`](https://github.com/torvalds/linux/commit/6cfc1b90cb86f4aabc69fb8e30128e07e2cdfa3a) | SCTP networking (`net/sctp`) | `sctp: validate chunk length in the inqueue parser` | Patch author + `Signed-off-by` | No distinct stable backport verified | [Read](contributions/6cfc1b90-sctp-inqueue-chunk-length/) |
 | [`e148e567a925`](https://github.com/torvalds/linux/commit/e148e567a9252643baa125cb65d7ae9c2c6cf68a) | KSMBD / SMB server (`fs/smb/server`) | `ksmbd: preserve VFS inherited POSIX ACL mask` | `Reported-by`; patch authored by Namjae Jeon | [Selected for an AUTOSEL series](https://lkml.iu.edu/2608.3/13998.html); no distinct stable commit verified | [Read](contributions/e148e567-ksmbd-posix-acl-mask/) |
 | [`2bebf2470af1`](https://github.com/torvalds/linux/commit/2bebf2470af1a72f87754a5c7b21e86af32b9c8f) | KSMBD / SMB server (`fs/smb/server`) | `ksmbd: enforce signing required by the session` | `Reported-by`; patch authored by Namjae Jeon | No stable backport verified | [Read](contributions/2bebf247-ksmbd-session-signing/) |
 
 ## Stable-tree backports
 
-The first authored SCTP fix is present in six verified stable branches:
+The first authored SCTP fix is present in seven verified stable branches:
 
 | Stable branch | Stable commit |
 |---|---|
+| Linux 7.1.y | [`bfa28cf99eb4d096c87da939f54233444d209ca5`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=bfa28cf99eb4d096c87da939f54233444d209ca5) |
 | Linux 6.18.y | [`17b412468c7a44f66a385bda48cdc1e94e39bd6d`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=17b412468c7a44f66a385bda48cdc1e94e39bd6d) |
 | Linux 6.12.y | [`5fd7cfc708dfc988ae9920c21075e6121bc89926`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=5fd7cfc708dfc988ae9920c21075e6121bc89926) |
 | Linux 6.6.y | [`93942b5772e0eee4147d4799cc1b936ae12fa615`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=93942b5772e0eee4147d4799cc1b936ae12fa615) |

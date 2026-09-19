@@ -215,7 +215,7 @@ The original validation reproduced the behavior on Linux **v7.1.3**. Public tag 
 
 The exact introducing commit was not independently established during the bounded review, so this write-up does not expand the affected range beyond directly reviewed evidence and the upstream fix history.
 
-The patch was selected for a public AUTOSEL series covering Linux 6.18 through 6.6. That is a queued selection, not proof of completed stable-tree backports. No distinct stable-branch cherry-pick IDs were verified during the September 5, 2026 re-check.
+The patch was selected for a public AUTOSEL series covering Linux 6.18 through 6.6. On September 17, 2026, it advanced into concrete stable-review batches as `[PATCH 6.18 0543/1250]` and `[PATCH 6.12 0440/1102]`. Those review messages are meaningful backport progress, but they are not proof of a released stable backport. Direct checks of the official stable-tree tips through tags v6.18.52 and v6.12.110 found no matching commit, so no stable cherry-pick ID or released stable version is claimed here.
 
 ---
 

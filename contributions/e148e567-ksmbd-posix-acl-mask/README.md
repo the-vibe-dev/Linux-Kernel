@@ -1,4 +1,4 @@
-# ksmbd: preserve VFS inherited POSIX ACL mask
+# CVE-2026-93786 — ksmbd: preserve VFS inherited POSIX ACL mask
 
 **Linux mainline:** [`e148e567a9252643baa125cb65d7ae9c2c6cf68a`](https://github.com/torvalds/linux/commit/e148e567a9252643baa125cb65d7ae9c2c6cf68a)  
 **Subsystem:** `fs/smb/server` / KSMBD  
@@ -21,6 +21,8 @@
 | First verified mainline tag containing fix | `v7.2-rc5` |
 | Final mainline release containing fix | Linux 7.2 |
 | Security class | Incorrect permission assignment / post-create ACL widening |
+| Public CVE | [CVE-2026-93786](https://www.cve.org/CVERecord?id=CVE-2026-93786), published September 24, 2026 |
+| Released stable fixes | Linux 6.18.53 and 6.12.111, according to the public CVE record |
 
 ## Summary
 
@@ -203,7 +205,7 @@ The research does **not** support claims of:
 - local root or UID escalation;
 - universal impact on KSMBD deployments without the relevant ACL configuration.
 
-The upstream commit itself does not assign a CVE or CVSS score. This repository therefore describes the technical boundary and observed effect without inventing a public severity label.
+The upstream commit itself does not assign a severity. The subsequently published [CVE-2026-93786 record](https://www.cve.org/CVERecord?id=CVE-2026-93786) displays High, 8.1 (CVSS 3.1: `AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:N`). That public rating does not expand the configuration-dependent impact described here.
 
 ---
 
@@ -213,9 +215,16 @@ The accepted commit fixes the pre-existing behavior but does not publish a compl
 
 The original validation reproduced the behavior on Linux **v7.1.3**. Public tag containment checks showed the patch absent from **v7.2-rc4**, present in **v7.2-rc5**, and present in final **Linux 7.2**.
 
-The exact introducing commit was not independently established during the bounded review, so this write-up does not expand the affected range beyond directly reviewed evidence and the upstream fix history.
+The public CVE record identifies introducing commit `f44158485826c076335d6860d35872271a83791d` and lists Linux 5.15 as affected, with versions before 5.15 unaffected. Those historical bounds are attributed to the CNA record, not to a new independent review of every release.
 
-The patch was selected for a public AUTOSEL series covering Linux 6.18 through 6.6. On September 17, 2026, it advanced into concrete stable-review batches as `[PATCH 6.18 0543/1250]` and `[PATCH 6.12 0440/1102]`. Those review messages are meaningful backport progress, but they are not proof of a released stable backport. Direct checks of the official stable-tree tips through tags v6.18.52 and v6.12.110 found no matching commit, so no stable cherry-pick ID or released stable version is claimed here.
+The patch was selected for a public AUTOSEL series covering Linux 6.18 through 6.6. The September 17 stable-review batches were followed by released fixes documented in the public CVE record:
+
+| Stable release | Fix commit |
+|---|---|
+| Linux 6.18.53 | [`0093909becbd`](https://git.kernel.org/stable/c/0093909becbda22b62b39b654dbc607faed59cd0) |
+| Linux 6.12.111 | [`591acf171644`](https://git.kernel.org/stable/c/591acf171644de590cda245fd8595b473a1beb70) |
+
+The September 30 mail `[PATCH 6.6 0326/1193]` is a further stable-review notice, not proof of a released 6.6 fix. The [kernel security tracker](https://kernel-team.pages.debian.net/kernel-sec/CVE-2026-93786.html) also records the released 6.18 and 6.12 fixes. Upgrade according to the corrected release for the branch in use; do not assume an AUTOSEL or review message alone means the installed kernel is fixed.
 
 ---
 
@@ -243,11 +252,14 @@ A strong KSMBD regression test should:
 | July 22, 2026 | Commit `e148e567a925` recorded in upstream history. |
 | Linux 7.2-rc5 | First verified mainline tag containing the fix. |
 | Linux 7.2 | Final mainline release containing the accepted change. |
+| September 24, 2026 | CVE-2026-93786 published for this accepted fix. |
+| October 2, 2026 refresh | Public record confirms released fixes in 6.18.53 and 6.12.111; 6.6 review remains separate. |
 
 ---
 
 ## Upstream references
 
+- [Public CVE record — CVE-2026-93786](https://www.cve.org/CVERecord?id=CVE-2026-93786)
 - [Linux mainline commit — e148e567a925](https://github.com/torvalds/linux/commit/e148e567a9252643baa125cb65d7ae9c2c6cf68a)
 - [git.kernel.org commit view](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=e148e567a9252643baa125cb65d7ae9c2c6cf68a)
 - [AUTOSEL selection thread](https://lkml.iu.edu/2608.3/13998.html)

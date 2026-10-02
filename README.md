@@ -24,6 +24,7 @@ This repository is the authoritative public portfolio for accepted Linux securit
 | Fixes carrying `Reported-by: Charles Vosburgh` | **2** |
 | Verified stable-tree backports of the first authored SCTP fix | **7** |
 | Subsystems represented | **2** |
+| Public CVEs mapped to accepted fixes | **2** |
 
 The seven-backport count applies only to `sctp: validate Adaptation Indication parameter length`. It is not a total across all four fixes.
 
@@ -33,7 +34,7 @@ The seven-backport count applies only to `sctp: validate Adaptation Indication p
 |---|---|---|---|---|---|
 | [`74b21f52c5c5`](https://github.com/torvalds/linux/commit/74b21f52c5c5a71a05c0ff70e513f4f04ff28b17) | SCTP networking (`net/sctp`) | `sctp: validate Adaptation Indication parameter length` (`CVE-2026-80717`, `GHSA-fq3m-cvqw-wrvh`) | Patch author + `Signed-off-by` | Seven verified stable-tree backports | [Read](contributions/74b21f52-sctp-adaptation-indication-length/) |
 | [`6cfc1b90cb86`](https://github.com/torvalds/linux/commit/6cfc1b90cb86f4aabc69fb8e30128e07e2cdfa3a) | SCTP networking (`net/sctp`) | `sctp: validate chunk length in the inqueue parser` | Patch author + `Signed-off-by` | No distinct stable backport verified | [Read](contributions/6cfc1b90-sctp-inqueue-chunk-length/) |
-| [`e148e567a925`](https://github.com/torvalds/linux/commit/e148e567a9252643baa125cb65d7ae9c2c6cf68a) | KSMBD / SMB server (`fs/smb/server`) | `ksmbd: preserve VFS inherited POSIX ACL mask` | `Reported-by`; patch authored by Namjae Jeon | [AUTOSEL selected](https://lkml.iu.edu/2608.3/13998.html); entered 6.18 and 6.12 stable review on 2026-09-17; no released stable commit verified | [Read](contributions/e148e567-ksmbd-posix-acl-mask/) |
+| [`e148e567a925`](https://github.com/torvalds/linux/commit/e148e567a9252643baa125cb65d7ae9c2c6cf68a) | KSMBD / SMB server (`fs/smb/server`) | `ksmbd: preserve VFS inherited POSIX ACL mask` (`CVE-2026-93786`) | `Reported-by`; patch authored by Namjae Jeon | Released in 6.18.53 and 6.12.111; 6.6 stable review announced September 30 | [Read](contributions/e148e567-ksmbd-posix-acl-mask/) |
 | [`2bebf2470af1`](https://github.com/torvalds/linux/commit/2bebf2470af1a72f87754a5c7b21e86af32b9c8f) | KSMBD / SMB server (`fs/smb/server`) | `ksmbd: enforce signing required by the session` | `Reported-by`; patch authored by Namjae Jeon | No stable backport verified | [Read](contributions/2bebf247-ksmbd-session-signing/) |
 
 ## Stable-tree backports
@@ -51,6 +52,8 @@ The first authored SCTP fix is present in seven verified stable branches:
 | Linux 5.10.y | [`fa7861ddbe3b525b5d541c15c3953d3569e6eb0e`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=fa7861ddbe3b525b5d541c15c3953d3569e6eb0e) |
 
 ## Credit roles
+
+The two mapped public CVEs are SCTP `CVE-2026-80717` and KSMBD `CVE-2026-93786`. A CVE assignment is not an additional accepted patch or a change from reporter credit to patch authorship. The KSMBD ACL fix has two released stable backports in addition to the seven SCTP backports counted above.
 
 The upstream commits preserve two different contribution roles:
 

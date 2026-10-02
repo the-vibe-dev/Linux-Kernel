@@ -8,25 +8,25 @@
   <img src="https://img.shields.io/badge/Accepted%20Mainline%20Fixes-4-0A66C2?style=for-the-badge" alt="4 accepted mainline security fixes" />
   <img src="https://img.shields.io/badge/Authored%20Patches-2-2EA44F?style=for-the-badge" alt="2 authored patches" />
   <img src="https://img.shields.io/badge/Reported--by%20Fixes-2-6F42C1?style=for-the-badge" alt="2 Reported-by fixes" />
-  <img src="https://img.shields.io/badge/Verified%20Stable%20Backports-7-F59E0B?style=for-the-badge" alt="7 verified stable-tree backports of the first authored SCTP fix" />
+  <img src="https://img.shields.io/badge/Verified%20Stable%20Backports-9-F59E0B?style=for-the-badge" alt="9 verified stable backports: seven SCTP and two KSMBD ACL fixes" />
 </p>
 
-Upstream Linux kernel security work by **Charles Vosburgh** / **[`the-vibe-dev`](https://github.com/the-vibe-dev)**.
+I'm **Charles Vosburgh** / **[`the-vibe-dev`](https://github.com/the-vibe-dev)**. My Linux kernel work focuses on protocol validation, filesystem permissions, and SMB security boundaries.
 
-This repository is the authoritative public portfolio for accepted Linux security fixes carrying Charles's author or reporter credit. CVE and GitHub Security Advisory research is documented separately in [`the-vibe-dev/CVE-GHSA`](https://github.com/the-vibe-dev/CVE-GHSA).
+This portfolio brings together my accepted upstream patches and reported findings, with technical write-ups and links to mainline commits and stable backports. My wider vulnerability research is in [`CVE-GHSA`](https://github.com/the-vibe-dev/CVE-GHSA).
 
 ## Current contribution snapshot
 
-| Metric | Verified public count |
+| My upstream contributions | Count |
 |---|---:|
-| Accepted mainline security fixes carrying Charles's credit | **4** |
-| Patches authored and signed off by Charles | **2** |
-| Fixes carrying `Reported-by: Charles Vosburgh` | **2** |
-| Verified stable-tree backports of the first authored SCTP fix | **7** |
+| Accepted mainline security fixes | **4** |
+| Patches I authored and signed off | **2** |
+| Fixes crediting me as reporter | **2** |
+| Verified stable-tree backports | **9** |
 | Subsystems represented | **2** |
 | Public CVEs mapped to accepted fixes | **2** |
 
-The seven-backport count applies only to `sctp: validate Adaptation Indication parameter length`. It is not a total across all four fixes.
+Seven stable backports carry my SCTP Adaptation Indication fix; two carry the KSMBD inherited-ACL fix. My accepted work includes **CVE-2026-80717** and **CVE-2026-93786**.
 
 ## Accepted mainline contribution index
 
@@ -51,43 +51,37 @@ The first authored SCTP fix is present in seven verified stable branches:
 | Linux 5.15.y | [`4c92c601c061e5602db2edeea54fef74aa304027`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=4c92c601c061e5602db2edeea54fef74aa304027) |
 | Linux 5.10.y | [`fa7861ddbe3b525b5d541c15c3953d3569e6eb0e`](https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/commit/?id=fa7861ddbe3b525b5d541c15c3953d3569e6eb0e) |
 
-## Credit roles
+The inherited-ACL fix also has released backports:
 
-The two mapped public CVEs are SCTP `CVE-2026-80717` and KSMBD `CVE-2026-93786`. A CVE assignment is not an additional accepted patch or a change from reporter credit to patch authorship. The KSMBD ACL fix has two released stable backports in addition to the seven SCTP backports counted above.
+| Stable release | Stable commit |
+|---|---|
+| Linux 6.18.53 | [`0093909becbd`](https://git.kernel.org/stable/c/0093909becbda22b62b39b654dbc607faed59cd0) |
+| Linux 6.12.111 | [`591acf171644`](https://git.kernel.org/stable/c/591acf171644de590cda245fd8595b473a1beb70) |
 
-The upstream commits preserve two different contribution roles:
+## Upstream collaboration
 
-- Charles authored and signed off both SCTP fixes. Xin Long acknowledged them, and Jakub Kicinski integrated them through the networking tree.
-- Charles reported both KSMBD issues. Namjae Jeon authored the accepted fixes, and Steve French signed them into the SMB tree.
-
-Reporting credit is not presented as patch authorship.
+I authored both SCTP fixes, acknowledged by Xin Long and integrated by Jakub Kicinski through the networking tree. I reported the two KSMBD findings; Namjae Jeon authored their fixes, with Steve French providing SMB tree integration.
 
 ## Submitted / under review
 
-`sctp: validate Cookie Preservative parameter length` is publicly submitted and reviewed, but no mainline commit is verified. It is therefore not included in the four accepted fixes.
+My `sctp: validate Cookie Preservative parameter length` patch is publicly submitted and reviewed, with mainline integration pending.
 
 - [Patch submission](https://lkml.iu.edu/hypermail/linux/kernel/2607.3/10866.html)
 - [Maintainer review](https://lkml.iu.edu/hypermail/linux/kernel/2607.3/10931.html)
 
 ## Repository layout
 
-Each directory under `contributions/` corresponds to one accepted mainline fix and documents the security boundary, accepted change, validation evidence available in public sources, impact limits, credit, and upstream references. Private reproducers, raw lab evidence, credentials, and unpublished material are excluded.
+Browse `contributions/` for each fix's technical explanation, upstream history, credit, and public references.
 
 ## Contribution approach
 
-The write-ups distinguish:
-
-- patch authorship, `Signed-off-by`, `Reported-by`, review, and maintainer integration;
-- public upstream evidence from non-public research artifacts;
-- direct demonstrated behavior from broader inferred impact;
-- mainline inclusion from distinct stable-tree backports; and
-- accepted fixes from work that remains submitted or under review.
+I trace protocol and permission decisions to the kernel code that enforces them, then work with maintainers on focused fixes. My write-ups explain the failure, its practical limits, and how the accepted patch restores the intended behavior.
 
 ## Contributor
 
 **Charles Vosburgh** — [`the-vibe-dev`](https://github.com/the-vibe-dev)
 
-Independent security researcher and Linux kernel contributor working across protocol validation, filesystem/ACL behavior, SMB/KSMBD security boundaries, and low-level vulnerability analysis.
+I'm an independent security researcher and builder working across protocol validation, filesystem ACLs, SMB/KSMBD security, and low-level vulnerability analysis.
 
 ## Related research
 

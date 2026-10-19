@@ -223,8 +223,9 @@ The patch was selected for a public AUTOSEL series covering Linux 6.18 through 6
 |---|---|
 | Linux 6.18.53 | [`0093909becbd`](https://git.kernel.org/stable/c/0093909becbda22b62b39b654dbc607faed59cd0) |
 | Linux 6.12.111 | [`591acf171644`](https://git.kernel.org/stable/c/591acf171644de590cda245fd8595b473a1beb70) |
+| Linux 6.6.158 | [`4a19bb1c4566`](https://git.kernel.org/stable/c/4a19bb1c45667f5a5f6eff9cf6648e0f692d046f) |
 
-The September 30 mail `[PATCH 6.6 0326/1193]` is a further stable-review notice, not proof of a released 6.6 fix. The [kernel security tracker](https://kernel-team.pages.debian.net/kernel-sec/CVE-2026-93786.html) also records the released 6.18 and 6.12 fixes. Upgrade according to the corrected release for the branch in use; do not assume an AUTOSEL or review message alone means the installed kernel is fixed.
+The September 30 stable-review series was followed by the released **6.6.158** fix. The [Linux CNA record](https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/93xxx/CVE-2026-93786.json), updated October 3, maps that release to `4a19bb1c4566` alongside the 6.12 and 6.18 fixes. Use the corrected release for the maintained branch in use.
 
 ---
 
@@ -253,7 +254,7 @@ A strong KSMBD regression test should:
 | Linux 7.2-rc5 | First verified mainline tag containing the fix. |
 | Linux 7.2 | Final mainline release containing the accepted change. |
 | September 24, 2026 | CVE-2026-93786 published for this accepted fix. |
-| October 2, 2026 refresh | Public record confirms released fixes in 6.18.53 and 6.12.111; 6.6 review remains separate. |
+| October 19, 2026 refresh | Public record confirms released fixes in 6.6.158, 6.12.111, and 6.18.53. |
 
 ---
 

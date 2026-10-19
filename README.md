@@ -8,7 +8,7 @@
   <img src="https://img.shields.io/badge/Accepted%20Mainline%20Fixes-4-0A66C2?style=for-the-badge" alt="4 accepted mainline security fixes" />
   <img src="https://img.shields.io/badge/Authored%20Patches-2-2EA44F?style=for-the-badge" alt="2 authored patches" />
   <img src="https://img.shields.io/badge/Reported--by%20Fixes-2-6F42C1?style=for-the-badge" alt="2 Reported-by fixes" />
-  <img src="https://img.shields.io/badge/Verified%20Stable%20Backports-9-F59E0B?style=for-the-badge" alt="9 verified stable backports: seven SCTP and two KSMBD ACL fixes" />
+  <img src="https://img.shields.io/badge/Verified%20Stable%20Backports-10-F59E0B?style=for-the-badge" alt="10 verified stable backports: seven SCTP and three KSMBD ACL fixes" />
 </p>
 
 I'm **Charles Vosburgh** / **[`the-vibe-dev`](https://github.com/the-vibe-dev)**. My Linux kernel work focuses on protocol validation, filesystem permissions, and SMB security boundaries.
@@ -22,11 +22,11 @@ This portfolio brings together my accepted upstream patches and reported finding
 | Accepted mainline security fixes | **4** |
 | Patches I authored and signed off | **2** |
 | Fixes crediting me as reporter | **2** |
-| Verified stable-tree backports | **9** |
+| Verified stable-tree backports | **10** |
 | Subsystems represented | **2** |
 | Public CVEs mapped to accepted fixes | **2** |
 
-Seven stable backports carry my SCTP Adaptation Indication fix; two carry the KSMBD inherited-ACL fix. My accepted work includes **CVE-2026-80717** and **CVE-2026-93786**.
+Seven stable backports carry my SCTP Adaptation Indication fix; three carry the KSMBD inherited-ACL fix. My accepted work includes **CVE-2026-80717** and **CVE-2026-93786**.
 
 ## Accepted mainline contribution index
 
@@ -34,7 +34,7 @@ Seven stable backports carry my SCTP Adaptation Indication fix; two carry the KS
 |---|---|---|---|---|---|
 | [`74b21f52c5c5`](https://github.com/torvalds/linux/commit/74b21f52c5c5a71a05c0ff70e513f4f04ff28b17) | SCTP networking (`net/sctp`) | `sctp: validate Adaptation Indication parameter length` (`CVE-2026-80717`, `GHSA-fq3m-cvqw-wrvh`) | Patch author + `Signed-off-by` | Seven verified stable-tree backports | [Read](contributions/74b21f52-sctp-adaptation-indication-length/) |
 | [`6cfc1b90cb86`](https://github.com/torvalds/linux/commit/6cfc1b90cb86f4aabc69fb8e30128e07e2cdfa3a) | SCTP networking (`net/sctp`) | `sctp: validate chunk length in the inqueue parser` | Patch author + `Signed-off-by` | No distinct stable backport verified | [Read](contributions/6cfc1b90-sctp-inqueue-chunk-length/) |
-| [`e148e567a925`](https://github.com/torvalds/linux/commit/e148e567a9252643baa125cb65d7ae9c2c6cf68a) | KSMBD / SMB server (`fs/smb/server`) | `ksmbd: preserve VFS inherited POSIX ACL mask` (`CVE-2026-93786`) | `Reported-by`; patch authored by Namjae Jeon | Released in 6.18.53 and 6.12.111; 6.6 stable review announced September 30 | [Read](contributions/e148e567-ksmbd-posix-acl-mask/) |
+| [`e148e567a925`](https://github.com/torvalds/linux/commit/e148e567a9252643baa125cb65d7ae9c2c6cf68a) | KSMBD / SMB server (`fs/smb/server`) | `ksmbd: preserve VFS inherited POSIX ACL mask` (`CVE-2026-93786`) | `Reported-by`; patch authored by Namjae Jeon | Released in 6.18.53, 6.12.111, and 6.6.158 | [Read](contributions/e148e567-ksmbd-posix-acl-mask/) |
 | [`2bebf2470af1`](https://github.com/torvalds/linux/commit/2bebf2470af1a72f87754a5c7b21e86af32b9c8f) | KSMBD / SMB server (`fs/smb/server`) | `ksmbd: enforce signing required by the session` | `Reported-by`; patch authored by Namjae Jeon | No stable backport verified | [Read](contributions/2bebf247-ksmbd-session-signing/) |
 
 ## Stable-tree backports
@@ -57,6 +57,7 @@ The inherited-ACL fix also has released backports:
 |---|---|
 | Linux 6.18.53 | [`0093909becbd`](https://git.kernel.org/stable/c/0093909becbda22b62b39b654dbc607faed59cd0) |
 | Linux 6.12.111 | [`591acf171644`](https://git.kernel.org/stable/c/591acf171644de590cda245fd8595b473a1beb70) |
+| Linux 6.6.158 | [`4a19bb1c4566`](https://git.kernel.org/stable/c/4a19bb1c45667f5a5f6eff9cf6648e0f692d046f) |
 
 ## Upstream collaboration
 

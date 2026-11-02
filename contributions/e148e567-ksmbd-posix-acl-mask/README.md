@@ -224,8 +224,9 @@ The patch was selected for a public AUTOSEL series covering Linux 6.18 through 6
 | Linux 6.18.53 | [`0093909becbd`](https://git.kernel.org/stable/c/0093909becbda22b62b39b654dbc607faed59cd0) |
 | Linux 6.12.111 | [`591acf171644`](https://git.kernel.org/stable/c/591acf171644de590cda245fd8595b473a1beb70) |
 | Linux 6.6.158 | [`4a19bb1c4566`](https://git.kernel.org/stable/c/4a19bb1c45667f5a5f6eff9cf6648e0f692d046f) |
+| Linux 6.1.191 | [`8493da704275`](https://git.kernel.org/stable/c/8493da704275ca5ab67fb88c0ae7b71576e91951) |
 
-The September 30 stable-review series was followed by the released **6.6.158** fix. The [Linux CNA record](https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/93xxx/CVE-2026-93786.json), updated October 3, maps that release to `4a19bb1c4566` alongside the 6.12 and 6.18 fixes. Use the corrected release for the maintained branch in use.
+The September 30 stable-review series was followed by the released **6.6.158** fix. The November 2 refresh also verifies **6.1.191**, with backport `8493da704275`: the [current Linux CNA record](https://raw.githubusercontent.com/CVEProject/cvelistV5/main/cves/2026/93xxx/CVE-2026-93786.json) maps that release, its [released source](https://github.com/gregkh/linux/blob/v6.1.191/fs/smb/server/vfs.c) preserves the inherited ACL, and the backport retains my `Reported-by` credit. Use the corrected release for the maintained branch in use.
 
 ---
 
@@ -255,6 +256,7 @@ A strong KSMBD regression test should:
 | Linux 7.2 | Final mainline release containing the accepted change. |
 | September 24, 2026 | CVE-2026-93786 published for this accepted fix. |
 | October 19, 2026 refresh | Public record confirms released fixes in 6.6.158, 6.12.111, and 6.18.53. |
+| November 2, 2026 refresh | Verified the additional released backport in 6.1.191. |
 
 ---
 
